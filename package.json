@@ -1,0 +1,20 @@
+{
+  "name": "fis3-swig-demo",
+  "version": "0.0.1",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.1",
+    "express": "^4.13.4",
+    "lodash": "^4.11.1"
+  },
+  "devDependencies": {
+    "fis-parser-sass": "^0.3.16",
+    "fis3-hook-commonjs": "^0.1.15",
+    "yog-swig": "^0.3.1",
+    "yog-view": "^0.5.2",
+    "yogurt-postprocessor-require-async": "0.0.3",
+    "yogurt-preprocessor-extlang": "0.0.2"
+  }
+}
