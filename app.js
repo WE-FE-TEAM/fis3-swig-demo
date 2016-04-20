@@ -5,6 +5,7 @@ let path = require('path');
 let express = require('express');
 let _ = require('lodash');
 let yogView = require('yog-view');
+let yogBigPipe = require('yog-bigpipe');
 let mapjson = require('./lib/mapjson.js');
 
 let app = express();
@@ -12,12 +13,12 @@ let app = express();
 const ROOT_PATH = __dirname;
 let resource_path = ROOT_PATH + '/output/resource-map/';
 let view_path = ROOT_PATH + '/output/views';
-let static_path = ROOT_PATH + 'output';
+let static_path = ROOT_PATH + '/output/static';
 
 let viewConf  = {
     confDir: resource_path,
     viewsDir: view_path,
-    bigpipe: false,
+    bigpipe: true,
     bigpipeOpt: {
         skipAnalysis: true,
         isSpiderMode: function (req) {
@@ -44,6 +45,11 @@ function setViews(app, conf){
         next();
     });
 
+    //初始化bigpipe
+    if (conf.bigpipe) {
+        app.use(yogBigPipe(conf.bigpipeOpt));
+    }
+
     _.forIn(conf.engine, function (engine, name) {
         //设置view engine
         let viewEngine = new yogView(app, engine, conf[name] || {});
@@ -53,6 +59,8 @@ function setViews(app, conf){
 }
 
 setViews(app, viewConf);
+
+console.log(static_path);
 
 app.use('/static', express.static(static_path));
 

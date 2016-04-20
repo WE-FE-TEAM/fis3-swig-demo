@@ -11,6 +11,8 @@
 
 .project
 
+/output
+
 npm-debug.log
 
 /~*
