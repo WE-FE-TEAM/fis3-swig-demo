@@ -14,7 +14,7 @@
 /output
 
 /demo/home/output
-
+/demo/home/node_modules
 
 npm-debug.log
 
