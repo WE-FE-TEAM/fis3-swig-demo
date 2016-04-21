@@ -1,0 +1,8 @@
+{
+  "name": "fis3-swig-demo",
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "react": "^15.0.1",
+    "zepto": "^1.0.1"
+  }
+}

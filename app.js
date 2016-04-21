@@ -11,9 +11,10 @@ let mapjson = require('./lib/mapjson.js');
 let app = express();
 
 const ROOT_PATH = __dirname;
-let resource_path = ROOT_PATH + '/output/resource-map/';
-let view_path = ROOT_PATH + '/output/views';
-let static_path = ROOT_PATH + '/output/static';
+let resource_path = ROOT_PATH + '/demo/home/output/resource-map/';
+let view_path = ROOT_PATH + '/demo/home/output/views';
+let static_path = ROOT_PATH + '/demo/home/output/static';
+let module_path = ROOT_PATH + '/demo/home/output/node_modules';
 
 let viewConf  = {
     confDir: resource_path,
@@ -64,8 +65,10 @@ console.log(static_path);
 
 app.use('/static', express.static(static_path));
 
+
+
 app.get('/test', (req, res) => {
-    res.render('./home/page/index.tpl');
+    res.render(view_path + '/home/page/index.tpl');
 });
 
 app.listen(3000, () => {
