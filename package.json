@@ -7,8 +7,11 @@
     "body-parser": "^1.15.0",
     "cookie-parser": "^1.4.1",
     "express": "^4.13.4",
+    "fis-parser-node-sass": "^0.1.9",
+    "fis-parser-typescript": "^0.2.2",
     "fis3-hook-node_modules": "^2.0.19",
     "lodash": "^4.11.1",
+    "react-dom": "^15.0.1",
     "yog-bigpipe": "^0.3.0"
   },
   "devDependencies": {

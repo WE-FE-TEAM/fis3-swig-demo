@@ -3,7 +3,7 @@
  * @author
  */
 
-'use strict'
+'use strict';
 
 fis.require.prefixes.unshift('yogurt');
 
@@ -18,8 +18,8 @@ let clientRoadmap = {
         moduleId: '${namespace}:$1',
         release: '/${static}/${namespace}/$1'
     },
-    'client/**.sass': {
-        parser: fis.plugin('sass'),
+    'client/**.scss': {
+        parser: fis.plugin('node-sass'),
         rExt: '.css'
     },
     'client/**.tpl': {
@@ -29,6 +29,10 @@ let clientRoadmap = {
     },
     'client/**.{tpl,js,ts,jsx,es,tsx}': {
         useSameNameRequire: true
+    },
+    'client/**.{js,jsx,ts}' : {
+        parser : fis.plugin('typescript'),
+        rExt: '.js'
     },
     'client/page/**.tpl': {
         extras: {
@@ -45,7 +49,7 @@ let clientRoadmap = {
         release: '/${template}/${namespace}/$1',
         useMap: true
     },
-    'client/{components,widget}/**.{js,es,ts,tsx,jsx,css,less}': {
+    'client/widget/**.{js,es,ts,tsx,jsx,css,less}': {
         isMod: true
     },
     'client/test/(**)': {
@@ -87,6 +91,9 @@ fis.match('/node_modules/(**.{js,jsx})', {
 fis.media('prod')
     .match('/node_modules/(**.{js,jsx})', {
         packTo : '/${static}/pkg/nm_pkg.js'
+    })
+    .match('/widget/(**.{css,scss})', {
+        packTo : '/${static}/pkg/${namespace}_wdg.css'
     });
 
 
